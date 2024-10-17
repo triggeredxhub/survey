@@ -1,0 +1,10 @@
+<form action="/ejs" method="post">
+    <input type="number" name="firstNum" id="firstNum" placeholder="Enter a number">
+    <input type="number" name="secondNum" id="secondNum" placeholder="Enter a number">
+    <input type="submit" value="submit">
+</form>
+<% if(locals.firstNum){ %>
+<h1><%= firstNum + secondNum %></h1>
+<% } else { %>
+   <h1><%= locals.secondNum %></h1> 
+<% } %>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Survey</title>
+</head>
+<body>
+    <h1>Update Survey</h1>
+    <form id="updateSurveyForm">
+        <label for="surveyNo">Survey ID:</label>
+        <input type="number" id="surveyNo" name="surveyNo" required><br>
+        <label for="surveyName">New Survey Name:</label>
+        <input type="text" id="surveyName" name="surveyName" required><br>
+        <label for="surveyDescription">New Survey Description:</label>
+        <input type="text" id="surveyDescription" name="surveyDescription" required><br>
+        <button type="submit">Update Survey</button>
+    </form>
+
+    <script>
+        document.getElementById('updateSurveyForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const surveyNo = formData.get('surveyNo');
+            const surveyName = formData.get('surveyName');
+            const surveyDescription = formData.get('surveyDescription');
+
+            try {
+                const response = await fetch('/updatesurveys', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ surveyNo, surveyName, surveyDescription })
+                });
+
+                if (response.ok) {
+                    alert('Survey updated successfully');
+                    // Optionally, reset the form
+                    event.target.reset();
+                } else {
+                    alert('Failed to update survey');
+                }
+            } catch (error) {
+                console.error('Error updating survey:', error);
+                alert('An error occurred while updating the survey');
+            }
+        });
+    </script>
+</body>
+</html>

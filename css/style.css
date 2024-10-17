@@ -1,0 +1,37 @@
+.table-bordered {
+    border: 1px solid #090909 !important;
+  }
+.surveyUpdate{
+  
+  position: absolute;
+  top: 100px;
+  left: 70px;
+  
+}
+/* Basic styles for the button */
+#addSurveyButton {
+  position: fixed; /* Position the button fixed to the viewport */
+  bottom: 20px; /* Distance from the bottom of the viewport */
+  right: 20px; /* Distance from the right of the viewport */
+  z-index: 1000; /* Ensure the button appears above other elements */
+  padding: 15px 20px; /* Add some padding for a larger clickable area */
+  font-size: 16px; /* Increase font size for better readability */
+  border-radius: 10px; /* Make the button circular */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s; /* Add a transition effect */
+}
+
+/* Hover effect for the button */
+#addSurveyButton:hover {
+  transform: scale(1.1); /* Slightly enlarge the button when hovered */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #addSurveyButton {
+      bottom: 10px; /* Adjust bottom distance for smaller screens */
+      right: 10px; /* Adjust right distance for smaller screens */
+      padding: 10px 15px; /* Adjust padding for smaller screens */
+      font-size: 14px; /* Decrease font size for smaller screens */
+  }
+}
